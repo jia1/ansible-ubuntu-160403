@@ -1,0 +1,11 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: no
+  roles:
+    - chrome
+    - git
+    - sublime
+    - ubuntu
+    - vim
+...

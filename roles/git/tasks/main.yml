@@ -1,0 +1,14 @@
+---
+- name: Install Git
+  apt:
+    name: git
+
+- name: Configure Git name
+  command: "git config --global user.name {{ github_name }}"
+
+- name: Configure Git email
+  command: "git config --global user.email {{ email }}"
+
+- name: Enable automatic color
+  command: git config --global color.ui auto
+...

@@ -1,0 +1,11 @@
+---
+- name: Install vim
+  apt:
+    name: vim
+
+- name: Download .vimrc
+  get_url:
+    url: "{{ url }}"
+    dest: "/home/{{ user }}/.vimrc"
+    force: "{{ force }}"
+...

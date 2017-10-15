@@ -1,0 +1,31 @@
+---
+- name: Forget app usage
+  command: gsettings set org.gnome.desktop.privacy remember-app-usage "{{ remember_app_usage }}"
+
+- name: Remove old temp files
+  command: gsettings set org.gnome.desktop.privacy remove-old-temp-files "{{ remove_old_temp_files }}"
+
+- name: Remove old trash files
+  command: gsettings set org.gnome.desktop.privacy remove-old-trash-files "{{ remove_old_trash_files }}"
+
+- name: Forget recent files
+  command: gsettings set org.gnome.desktop.privacy remember-recent-files "{{ remember_recent_files }}"
+
+- name: Do not send software usage stats
+  command: gsettings set org.gnome.desktop.privacy send-software-usage-stats "{{ send_software_usage_stats }}"
+
+- name: Do not report technical problems
+  command: gsettings set org.gnome.desktop.privacy report-technical-problems "{{ report_technical_problems }}"
+
+- name: Show full name in top bar
+  command: gsettings set org.gnome.desktop.privacy show-full-name-in-top-bar "{{ show_full_name_in_top_bar }}"
+
+- name: Set resolution
+  command: xrandr -s "{{ resolution }}"
+
+- name: Set theme
+  command: gsettings set org.gnome.desktop.interface gtk-theme "{{ theme }}"
+
+- name: Set favorites
+  command: gsettings set com.canonical.Unity.Launcher favorites "{{ favorites }}"
+...

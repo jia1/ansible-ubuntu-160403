@@ -1,0 +1,15 @@
+---
+- name: Add Sublime key
+  apt_key:
+    url: "{{ key }}"
+
+- name: Add Sublime repository
+  apt_repository:
+    filename: sublime-text
+    repo: "{{ repo }}"
+    update_cache: yes
+
+- name: Install Sublime
+  apt:
+    name: sublime-text
+...

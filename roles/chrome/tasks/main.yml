@@ -1,0 +1,21 @@
+---
+- name: Install GDebi
+  apt:
+    name: gdebi
+
+- name: Download deb file
+  get_url:
+    url: "{{ url }}"
+    dest: "{{ file }}"
+    force: "{{ force }}"
+
+- name: Install Chrome
+  command: "gdebi -n {{ file }}"
+  become: true
+  become_method: sudo
+
+- name: Delete deb file
+  file:
+    path: "{{ file }}"
+    state: absent
+...
