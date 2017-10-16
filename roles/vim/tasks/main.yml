@@ -5,12 +5,12 @@
 
 - name: Get username
   command: whoami
-  register: username
+  register: whoami
   delegate_to: 127.0.0.1
 
 - name: Download .vimrc
   get_url:
     url: "{{ url }}"
-    dest: "/home/{{ username.stdout }}/.vimrc"
+    dest: "/home/{{ whoami.stdout }}/.vimrc"
     force: yes
 ...

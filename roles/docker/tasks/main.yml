@@ -5,7 +5,7 @@
 
 - name: Get release
   command: lsb_release -cs
-  register: release
+  register: lsb_release
   delegate_to: 127.0.0.1
 
 - name: Add Docker repository
@@ -36,7 +36,7 @@
     dest: "{{ docker_compose_bin }}"
 
 - name: chmod +x docker-compose
-  become: yes
-  become_method: sudo
-  command: "chmod +x {{ docker_compose_bin }}"
+  file:
+    path: "{{ docker_compose_bin }}"
+    mode: 0755
 ...

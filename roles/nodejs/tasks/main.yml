@@ -1,6 +1,14 @@
 ---
-- name: Add Node.js ppa
-  command: "curl -sL {{ url }} | bash -"
+- name: Download Node.js setup script
+  get_url:
+    url: "{{ url }}"
+    dest: /tmp/
+    mode: 0755
+
+- name: Run setup script
+  command: setup_6.x
+  args:
+    chdir: /tmp/
 
 - name: Install Node.js
   apt:
