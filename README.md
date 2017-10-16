@@ -12,11 +12,13 @@ To install Git: `apt install git`
 ```bash
 git clone https://github.com/jia1/ansible-ubuntu-160403.git local.yml
 ./install.sh
+ansible-playbook -i hosts local.yml # Need to run this because of the bug
 ```
 
-### With Ansible but no Git (Bug in Ansible 2.4: See [here](https://github.com/ansible/ansible/issues/31449))
+### With Ansible but no Git (Bug in Ansible 2.4 - see [here](https://github.com/ansible/ansible/issues/31449))
 
 ```bash
+# Please try out the other sections instead
 # ansible-pull -U https://github.com/jia1/ansible-ubuntu-160403.git -i hosts local.yml
 ```
 
