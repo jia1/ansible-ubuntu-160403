@@ -1,3 +1,3 @@
 ---
-url: https://deb.nodesource.com/setup_6.x
+repo: deb https://deb.nodesource.com/setup_6.x {{ lsb_release.stdout }} main
 ...

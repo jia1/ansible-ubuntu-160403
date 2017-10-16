@@ -1,14 +1,13 @@
 ---
-- name: Download Node.js setup script
-  get_url:
-    url: "{{ url }}"
-    dest: /tmp/
-    mode: 0755
+- name: Get release
+  command: lsb_release -cs
+  register: lsb_release
+  delegate_to: 127.0.0.1
 
-- name: Run setup script
-  command: setup_6.x
-  args:
-    chdir: /tmp/
+- name: Add Node.js repository
+  apt_repository:
+    filename: nodesource
+    repo: "{{ repo }}"
 
 - name: Install Node.js
   apt:
