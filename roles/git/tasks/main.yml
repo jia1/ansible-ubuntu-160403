@@ -20,12 +20,14 @@
 - name: Create database
   become: yes
   become_method: sudo
-  chdir: "{{ lookup('ini', 'dir section=repo file={{ playbook_dir }}/git.ini') }}"
   command: docker-compose run web yarn run sequelize -- db:create
+  args:
+    chdir: "{{ lookup('ini', 'dir section=repo file={{ playbook_dir }}/git.ini') }}"
 
 - name: Migrate
   become: yes
   become_method: sudo
-  chdir: "{{ lookup('ini', 'dir section=repo file={{ playbook_dir }}/git.ini') }}"
   command: docker-compose run web yarn run db:migrate
+  args:
+    chdir: "{{ lookup('ini', 'dir section=repo file={{ playbook_dir }}/git.ini') }}"
 ...
