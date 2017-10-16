@@ -17,6 +17,6 @@ theme: Radiance
 display_resolution: 1366x768
 wallpaper_url: http://static.hdw.eweb4.com/media/wallpapers_1920x1080/anime/1/2/guilty-crown-anime-hd-wallpaper-1920x1080-14745.jpg
 # BUG: https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/1033034
-# wallpaper_file: "{{ playbook_dir }}/guilty-crown-wallpaper.jpg"
+wallpaper_file: "{{ playbook_dir }}/guilty-crown-wallpaper.jpg"
 timezone: Asia/Singapore
 ...
