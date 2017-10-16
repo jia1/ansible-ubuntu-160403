@@ -3,9 +3,14 @@
   apt:
     name: vim
 
+- name: Get username
+  command: whoami
+    register: username
+    delegate_to: 127.0.0.1
+
 - name: Download .vimrc
   get_url:
     url: "{{ url }}"
-    dest: "/home/{{ user }}/.vimrc"
-    force: "{{ force }}"
+    dest: "/home/{{ username.stdout }}/.vimrc"
+    force: yes
 ...

@@ -4,8 +4,11 @@
   gather_facts: no
   roles:
     - chrome
-    - git
+    - docker
+    - nodejs
+    - psql
     - sublime
     - ubuntu
     - vim
+    - git
 ...

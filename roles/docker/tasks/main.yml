@@ -1,0 +1,42 @@
+---
+- name: Add Docker key
+  apt_key:
+    url: "{{ docker_ce_key }}"
+
+- name: Get release
+  command: lsb_release -cs
+    register: release
+    delegate_to: 127.0.0.1
+
+- name: Add Docker repository
+  apt_repository:
+    filename: docker-ce
+    repo: "{{ docker_ce_repo }}"
+    update_cache: yes
+
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+
+- name: Get uname -s
+  command: uname -s
+  register: uname_s
+  delegate_to: 127.0.0.1
+
+- name: Get uname -m
+  command: uname -m
+  register: uname_m
+  delegate_to: 127.0.0.1
+
+- name: Download docker-compose
+  become: yes
+  become_method: sudo
+  get_url:
+    url: "{{ docker_compose_repo }}"
+    dest: "{{ docker_compose_bin }}"
+
+- name: chmod +x docker-compose
+  become: yes
+  become_method: sudo
+  command: "chmod +x {{ docker_compose_bin }}"
+...

@@ -1,0 +1,8 @@
+---
+- name: Add Node.js ppa
+  command: "curl -sL {{ url }} | bash -"
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+...

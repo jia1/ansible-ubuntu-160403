@@ -7,12 +7,12 @@
   get_url:
     url: "{{ url }}"
     dest: "{{ file }}"
-    force: "{{ force }}"
+    force: yes
 
 - name: Install Chrome
-  command: "gdebi -n {{ file }}"
-  become: true
+  become: yes
   become_method: sudo
+  command: "gdebi -n {{ file }}"
 
 - name: Delete deb file
   file:
