@@ -5,8 +5,8 @@
 
 - name: Get release
   command: lsb_release -cs
-    register: release
-    delegate_to: 127.0.0.1
+  register: release
+  delegate_to: 127.0.0.1
 
 - name: Add Docker repository
   apt_repository:
