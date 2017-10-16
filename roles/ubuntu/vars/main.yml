@@ -1,11 +1,12 @@
 ---
-remember_app_usage: false
-remove_old_temp_files: true
-remove_old_trash_files: true
-remember_recent_files: false
-send_software_usage_stats: false
-report_technical_problems: false
-show_full_name_in_top_bar: true
+remember_app_usage: "false"
+remove_old_temp_files: "true"
+remove_old_trash_files: "true"
+remember_recent_files: "false"
+send_software_usage_stats: "false"
+report_technical_problems: "false"
+show_full_name_in_top_bar: "true"
+# TODO: Fix launcher_favs and theme
 launcher_favs:
   - application://gnome-terminal.desktop
   - application://org.gnome.Nautilus.desktop
@@ -15,6 +16,7 @@ launcher_favs:
 theme: Radiance
 display_resolution: 1366x768
 wallpaper_url: http://static.hdw.eweb4.com/media/wallpapers_1920x1080/anime/1/2/guilty-crown-anime-hd-wallpaper-1920x1080-14745.jpg
-wallpaper_file: "{{ playbook_dir }}/guilty-crown-wallpaper.jpg"
+# BUG: https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/1033034
+# wallpaper_file: "{{ playbook_dir }}/guilty-crown-wallpaper.jpg"
 timezone: Asia/Singapore
 ...
