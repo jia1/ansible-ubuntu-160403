@@ -3,14 +3,10 @@
   apt:
     name: vim
 
-- name: Get username
-  command: whoami
-  register: whoami
-  delegate_to: 127.0.0.1
-
 - name: Download .vimrc
-  get_url:
-    url: "{{ url }}"
-    dest: "/home/{{ whoami.stdout }}/.vimrc"
+  copy:
+    src: "{{ src_file }}"
+    dest: "{{ dst_file }}"
+    mode: 0664
     force: yes
 ...
